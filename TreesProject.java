@@ -16,10 +16,22 @@ public class TreesProject {
         int [] keys = {50, 70, 20, 10, 90, 80};
         Node root = null;
         System.out.println("hello wrld");
-        for (int item: keys) {
+        for (int item : keys) {
             root = insert(root, item);
         }
-        inOrder(root);
+        GetPrint(root);
+    }
+
+    public static void GetPrint(Node root){
+        if(root == null){
+            System.out.println("The tree is Empty");
+        } else {
+            //What Gets Printed
+            inOrder(root);
+            System.out.println("");
+            System.out.println( "Left Child: " + root.left.key);
+            System.out.println( "Right Child: " + root.right.key);
+        }
     }
 
     public static void inOrder(Node root) {
@@ -41,12 +53,12 @@ public static Node insert(Node root, int item) {
     // Use a stack to track the path during traversal
     Stack<Node> stack = new Stack<>();
     Node current = root;
-    Node parent = null;
+    
     
     // Traverse to find the insertion point
     while (current != null) {
-        parent = current;
-        stack.push(parent);
+        
+        stack.push(current);
         
         if (item < current.key) {
             current = current.left;
@@ -63,11 +75,11 @@ public static Node insert(Node root, int item) {
         return newNode; // Should never happen if root wasn't null
     }
     
-    parent = stack.pop();
-    if (item < parent.key) {
-        parent.left = newNode;
+    Node lastNode = stack.pop();
+    if (item < lastNode.key) {
+        lastNode.left = newNode;
     } else {
-        parent.right = newNode;
+        lastNode.right = newNode;
     }
     
     // Update the references going back up the tree
