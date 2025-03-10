@@ -13,11 +13,11 @@ class Node {
 public class TreesProject {
 
     public static void main(String[] args) {
-        int [] keys = {50, 70, 20, 10, 90, 80};
+        int [] keys = { 50, 30, 60, 40, 50, 90, 20, 35, 50};     //50, 70, 20, 10, 90, 80, 75, 90, 25, 28
         Node root = null;
         System.out.println("hello wrld");
         for (int item : keys) {
-            root = insert(root, item);
+             root = insert(root, item);
         }
         GetPrint(root);
     }
@@ -27,18 +27,18 @@ public class TreesProject {
             System.out.println("The tree is Empty");
         } else {
             //What Gets Printed
-            inOrder(root);
+            sortIntegerArray(root);
             System.out.println("");
             System.out.println( "Left Child: " + root.left.key);
             System.out.println( "Right Child: " + root.right.key);
         }
     }
 
-    public static void inOrder(Node root) {
+    public static void sortIntegerArray(Node root) {
         if (root != null){
-            inOrder(root.left);
+            sortIntegerArray(root.left);
             System.out.print(root.key + " ");
-            inOrder(root.right);
+            sortIntegerArray(root.right);
         }
     }
 
