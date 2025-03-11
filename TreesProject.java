@@ -1,3 +1,7 @@
+/*
+ Collins Nyamu & Nicholas Hoang
+Tree Project
+ */
 import java.util.*;
 
 //represents each node in the tree
