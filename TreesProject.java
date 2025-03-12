@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  Collins Nyamu & Nicholas Hoang
 Tree Project
@@ -14,23 +13,13 @@ class Node {
         left = right = null;
     } //root of the bst
 } 
-=======
-import java.util.Arrays;
-import java.util.Stack;
->>>>>>> a84373d (Entirety of Question 1 sorting the bst)
+
+
 
 public class TreesProject {
 
     public static void main(String[] args) {
-<<<<<<< HEAD
-        int [] keys = { 50, 30, 60, 40, 50, 90, 20, 35, 50};     //50, 70, 20, 10, 90, 80, 75, 90, 25, 28
-        Node root = null;
-        System.out.println("hello wrld");
-        for (int item : keys) {
-             root = insert(root, item);
-        }
-        GetPrint(root);
-=======
+
         System.out.println("trees project");
 
         SortingIntegers sorter = new SortingIntegers();
@@ -40,80 +29,11 @@ public class TreesProject {
         System.out.println("Original array: " + Arrays.toString(arrIntegers));
 
         sorter.sortIntegerArray(arrIntegers);
->>>>>>> a84373d (Entirety of Question 1 sorting the bst)
-    }
 
-    public static void GetPrint(Node root){
-        if(root == null){
-            System.out.println("The tree is Empty");
-        } else {
-            //What Gets Printed
-            sortIntegerArray(root);
-            System.out.println("");
-            System.out.println( "Left Child: " + root.left.key);
-            System.out.println( "Right Child: " + root.right.key);
-        }
-    }
-
-<<<<<<< HEAD
-    public static void sortIntegerArray(Node root) {
-        if (root != null){
-            sortIntegerArray(root.left);
-            System.out.print(root.key + " ");
-            sortIntegerArray(root.right);
-        }
     }
 
 
-    
-public static Node insert(Node root, int item) {
-    // If tree is empty, create a new node and return it
-    if (root == null) {
-        return new Node(item);
-    }
-    
-    // Use a stack to track the path during traversal
-    Stack<Node> stack = new Stack<>();
-    Node current = root;
-    
-    
-    // Traverse to find the insertion point
-    while (current != null) {
-        
-        stack.push(current);
-        
-        if (item < current.key) {
-            current = current.left;
-        } else {
-            current = current.right;
-        }
-    }
-    
-    // Create the new node
-    Node newNode = new Node(item);
-    
-    // Insert the new node at the right position
-    if (stack.isEmpty()) {
-        return newNode; // Should never happen if root wasn't null
-    }
-    
-    Node lastNode = stack.pop();
-    if (item < lastNode.key) {
-        lastNode.left = newNode;
-    } else {
-        lastNode.right = newNode;
-    }
-    
-    // Update the references going back up the tree
-    while (!stack.isEmpty()) {
-        current = stack.pop();
-        // The structure doesn't change for nodes higher up
-        // We just need to ensure we return the original root
-    }
-    
-    return root;
-}
-=======
+
     //represents each node in the tree
 class Node {
     int key; 
@@ -216,27 +136,25 @@ private Node insertRec(Node root, int key){
 
         System.out.println();
     }
-}
 
 
-public static class SortingIntegers {
 
-    public void sortIntegerArray(Integer []arr) {
+    public static class SortingIntegers {
 
-        BST bst = new BST();
+        public void sortIntegerArray(Integer []arr) {
 
-        for(int num : arr) {
-            bst.insert(num);
+            BST bst = new BST();
+
+            for(int num : arr) {
+                bst.insert(num);
+            }
+
+            System.out.println("Sorted order (in-order traversal): ");
+            bst.inOrderTraversal();
         }
-
-        System.out.println("Sorted order (in-order traversal): ");
-        bst.inOrderTraversal();
     }
-}
 
->>>>>>> a84373d (Entirety of Question 1 sorting the bst)
-
-    }                
+}                  
 
 
 
