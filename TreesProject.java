@@ -4,18 +4,6 @@ Tree Project
  */
 import java.util.*;
 
-//represents each node in the tree
-class Node {
-    int key; 
-    Node left, right;
-    Node(int item) {
-        key = item;
-        left = right = null;
-    } //root of the bst
-} 
-
-
-
 public class TreesProject {
 
     public static void main(String[] args) {
