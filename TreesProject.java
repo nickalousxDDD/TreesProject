@@ -7,11 +7,12 @@ public class TreesProject {
         System.out.println("Hello world");
 
         SortingIntegers sorter = new SortingIntegers();
-        Integer[] arrIntegers = {44, 109, 67, 55, 50, 22, 12, 17, 66, 31};
+        Integer[] arrIntegers = {34,63,67,17,27,18,82,14,97,71,13,67};
 
         System.out.println("Original array: " + Arrays.toString(arrIntegers));
 
         sorter.sortIntegerArray(arrIntegers); // This will sort and print the array
+
     }
 }
 
@@ -27,6 +28,9 @@ class SortingIntegers {
 
         System.out.println("Sorted order (in-order traversal): ");
         bst.inOrderTraversal(); // Print sorted array using in-order traversal
+
+        bst.getRootDetails(); // Print root, left and right subtrees
+
     }
 }
 
@@ -73,7 +77,9 @@ class BST {
 
     // Perform in-order traversal to print elements in sorted order
     public void inOrderTraversal() {
-        if (root == null) return; // If the tree is empty, do nothing
+        if (root == null) 
+         System.out.println("Tree is Empty");  // If the tree is empty, do nothing
+
         Stack<Node> stack = new Stack<>();
         Node current = root;
 
@@ -94,4 +100,26 @@ class BST {
 
         System.out.println();
     }
+
+     // Method to return the root key, left subtree, and right subtree
+     public void getRootDetails() {
+        if (root != null) {
+            System.out.println("Root Key: " + root.key);
+            
+            if (root.left != null) {
+                System.out.println("Left Subtree Key: " + root.left.key); // Return left child key
+            } else {
+                System.out.println("Left Subtree: None"); // If there's no left child
+            }
+    
+            if (root.right != null) {
+                System.out.println("Right Subtree Key: " + root.right.key); // Return right child key
+            } else {
+                System.out.println("Right Subtree: None"); // If there's no right child
+            }
+        } else {
+            System.out.println("Tree is Empty");
+        }
+    }
+
 }
